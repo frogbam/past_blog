@@ -15,8 +15,8 @@ timezone: Asia/Seoul
 # ↓ --------------------------
 
 title: 찬호의 Too Much Intelligence # the main title
-
 tagline: ✉️ frogbam07@gmail.com # it will display as the subtitle
+
 
 
 description: >- # used by seo meta and the atom feed
@@ -38,7 +38,6 @@ social:
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: frogbam
   email: frogbam07@gmail.com # change to your email address
-
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/username # change to your Twitter homepage
@@ -153,7 +152,7 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl: ""
+baseurl: "/frogbam"
 
 # ------------ The following options are not recommended to be modified ------------------
 
