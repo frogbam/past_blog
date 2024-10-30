@@ -8,7 +8,7 @@ toc: true
 published: true
 ---
 
-![alt text](../assets/img/posts/2024-10-30-정규화/Spiderman-Pointing-Meme.jpg)
+![alt text](../assets/img/posts/2024-10-30-normalization-stndardization-regularization/Spiderman-Pointing-Meme.jpg)
 
 인공지능을 공부하다보면 3개의 정규화를 만나게 된다.
 Normalization, Standardization, Regularization이 그것들이다.
