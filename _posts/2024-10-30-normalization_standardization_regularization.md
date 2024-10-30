@@ -6,6 +6,7 @@ tags:
   [normalization, standardization, regularization]
 toc: true
 published: true
+math: true
 ---
 
 ![alt text](../assets/img/posts/2024-10-30-normalization-stndardization-regularization/Spiderman-Pointing-Meme.jpg)
