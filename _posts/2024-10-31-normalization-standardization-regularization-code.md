@@ -154,7 +154,7 @@ for epoch in range(100):
 
 ```
 
-사실 위의 코드와 같이 optimizer(여기서는 SGD)의 weight_decay값으로 lambda값만 넣어주면 해당 labmda값으로 L2 Regularization이 적용된다.
+사실 L2 Regularization은 보통 위의 코드와 같이 구현한다. optimizer(여기서는 SGD)의 weight_decay값으로 lambda값만 넣어주면 해당 labmda값으로 L2 Regularization이 적용된다.
 
 > 왜 Weight Decay라고 했을까?
 > 
