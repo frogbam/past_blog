@@ -1,5 +1,5 @@
 ---
-title: Normalization, Standardization, Regularization 정리 및 비교
+title: Normalization, Standardization, Regularization 정리
 date: 2024-10-30 16:30:00 +09:00
 categories: [인공지능 관련]
 tags:
@@ -50,11 +50,11 @@ $$ X_{std} = { {X-\mu} \over {\sigma} } $$
 
 Normalization과 같은거 아닌가? 라는 생각이 들어서 정리해 보았다.
 
-구분 | Standardization | Normalization
----------|----------|---------
- 목적 | 평균 0, 표준편차 1로 조정하여 스케일을 조정 | 데이터 범위를 조정
- 사용 | 기울기 기반 최적화, 거리 기반 알고리즘 | 신경망 입력, 스케일 차이가 큰 데이터
- 결과분포 | 평균 0, 표준편차1인 정규분포를 따름. | 특정 구간(0~1)에 데이터가 위치
+| 구분     | Standardization                             | Normalization                        |
+| -------- | ------------------------------------------- | ------------------------------------ |
+| 목적     | 평균 0, 표준편차 1로 조정하여 스케일을 조정 | 데이터 범위를 조정                   |
+| 사용     | 기울기 기반 최적화, 거리 기반 알고리즘      | 신경망 입력, 스케일 차이가 큰 데이터 |
+| 결과분포 | 평균 0, 표준편차1인 정규분포를 따름.        | 특정 구간(0~1)에 데이터가 위치       |
 
 **정규화(Normalization)**
  데이터가 정규 분포(Gaussian distribution)를 따르지 않는 경우 적합하며, 데이터의 분포가 불확실할 때 사용. 정규화는 데이터를 [0,1] 또는 [-1,1] 범위로 조정하며, 데이터에 이상치(outliers) 가 있을 경우 그 영향을 크게 받을 수 있음. 알고리즘이 데이터 분포에 대한 가정을 하지 않는 경우에 주로 사용됨.
@@ -77,8 +77,8 @@ Normalization과 같은거 아닌가? 라는 생각이 들어서 정리해 보�
 
 Regularizaion은 학습과정에서 가중치가 너무 커지는 것을 억제한다**. **즉, 모델이 학습데이터를 외우는것(overfitting)이 아닌 데이터의 일반적인 패턴들을 학습하도록 하여 일반화 성능을 높이도록 하기 위해서이다.**
 
-$$손실함수(L1\,Regularization) = Loss + \lambda \sum_{j=1}^{M}\left\vert w_j \right\vert$$
-$$손실함수(L2\,Regularization) = Loss + \lambda \sum_{j=1}^{M}w_{j}^{2}$$
+$$ 손실함수(L1\,Regularization) = Loss + \lambda \sum_{j=1}^{M}\left\vert w_j \right\vert $$
+$$ 손실함수(L2\,Regularization) = Loss + \lambda \sum_{j=1}^{M}w_{j}^{2} $$
 
 
 Loss에 가중치값에 대한 L1, L2값을 더해주어 가중치값이 너무 커지는 것을 막는다.
@@ -95,8 +95,10 @@ tanh 활성함수를 생각해보자. 입력이 매우 작거나 큰 경우 기�
 
 **Gradient Explosion**
 MSE Loss: $L=(y_{true} - y)^2$
-$\delta L \over \delta y$ = $2(y_{true}-y)$
-$\delta L \over \delta W$ = ${\delta L \over \delta y}*{\delta y \over \delta W}$
+
+$ \delta L \over \delta y$ = $2(y_{true}-y) $
+
+$ \delta L \over \delta W$ = ${\delta L \over \delta y}*{\delta y \over \delta W} $
 
 신경망이 작은 값들을 주로 학습하여 가중치 w가 이에 맞게 조정된 상황에서, 갑자기 큰 입력값이 들어오면 최종 출력 y도 커질 가능성이 있다. 이로 인해 큰 Loss 값과 큰 기울기가 발생할 수 있다.
 
