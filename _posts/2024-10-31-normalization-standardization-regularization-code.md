@@ -126,7 +126,7 @@ for epoch in range(100):
   outputs = model(inputs)
   loss = creterion(outputs, targets)
 
-  # L1 Regularization 적용
+  # L2 Regularization 적용
   l1_reg = 0
   for param in model.parameters():
     l1_reg += torch.sum(param*param)
@@ -151,13 +151,6 @@ for epoch in range(100):
   optimizer.zero_grad()
   outputs = model(inputs)
   loss = creterion(outputs, targets)
-
-  # L1 Regularization 적용
-  l1_reg = 0
-  for param in model.parameters():
-    l1_reg += torch.sum(torch.abs(param))
-  loss = loss + l1_lambda * l1_reg 
-
   loss.backward()
   optimizer.step()
 
