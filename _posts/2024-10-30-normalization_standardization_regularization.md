@@ -78,8 +78,8 @@ Normalization과 같은거 아닌가? 라는 생각이 들어서 정리해 보�
 Regularizaion은 학습과정에서 가중치가 너무 커지는 것을 억제한다**. **즉, 모델이 학습데이터를 외우는것(overfitting)이 아닌 데이터의 일반적인 패턴들을 학습하도록 하여 일반화 성능을 높이도록 하기 위해서이다.**
 
 $$ 손실함수(L1\,Regularization) = Loss + \lambda \sum_{j=1}^{M}\left\vert w_j \right\vert $$
-$$ 손실함수(L2\,Regularization) = Loss + \lambda \sum_{j=1}^{M}w_{j}^{2} $$
 
+$$ 손실함수(L2\,Regularization) = Loss + \lambda \sum_{j=1}^{M}w_{j}^{2} $$
 
 Loss에 가중치값에 대한 L1, L2값을 더해주어 가중치값이 너무 커지는 것을 막는다.
 
@@ -94,6 +94,7 @@ tanh 활성함수를 생각해보자. 입력이 매우 작거나 큰 경우 기�
 
 
 **Gradient Explosion**
+
 MSE Loss: $L=(y_{true} - y)^2$
 
 $ \delta L \over \delta y$ = $2(y_{true}-y) $
