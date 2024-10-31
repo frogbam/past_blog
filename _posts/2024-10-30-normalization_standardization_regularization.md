@@ -18,11 +18,12 @@ Normalization, Standardization, Regularization이 그것들이다.
 
 _이 셋 각각이 사용되는 범위가 넓지만 해당 포스트에서는 각자 대표적인 의미를 중심으로 정리하고자 한다._
 
-# Normalization (Min-Max scaling)
+## Normalization (Min-Max scaling)
 
-> Normalization of ratings means adjusting values measured on different scales to a notionally common scale
-> by wikipedia
-{: .prompt-info }
+> Wikipedia
+> 
+> Normalization of ratings means adjusting values measured on different scales to a notionally common scale.
+{: .prompt-tip }
 
 $$X_{norm} = {X-min(X) \over max(X) - min(X)}$$
 
@@ -39,10 +40,12 @@ Norm은 여기서 말한 데이터 전처리 뿐만아니라 여러 부분에서
 
 
 
-# Standardization
+## Standardization
+
+> ChatGPT
+> 
 > Standardization는 데이터의 평균을 0, 표준편차를 1로 맞추어 데이터의 스케일을 조정하는 방법입니다. 표준화는 데이터의 단위를 통일하고 각 특징이 모델에 균등한 영향을 주도록 도와줍니다. 이 과정을 거친 데이터는 평균이 0, 표준편차가 1인 정규 분포 형태로 변환됩니다.
-> by ChatGPT
-{: .prompt-info }
+{: .prompt-tip }
 
 $$ X_{std} = { {X-\mu} \over {\sigma} } $$
 
@@ -75,10 +78,11 @@ Normalization과 같은거 아닌가? 라는 생각이 들어서 정리해 보�
 
 
 
-# Regularization
+## Regularization
+> Wikipedia
+> 
 > The goal of regularization is to encourage models to learn the broader patterns within the data rather than memorizing it.
-> by Wikipedia
-{: .prompt-info }
+{: .prompt-tip }
 
 Regularizaion은 학습과정에서 가중치가 너무 커지는 것을 억제한다**. **즉, 모델이 학습데이터를 외우는것(overfitting)이 아닌 데이터의 일반적인 패턴들을 학습하도록 하여 일반화 성능을 높이도록 하기 위해서이다.**
 
@@ -89,10 +93,10 @@ $$ 손실함수(L2\,Regularization) = Loss + \lambda \sum_{j=1}^{M}w_{j}^{2} $$
 Loss에 가중치값에 대한 L1, L2값을 더해주어 가중치값이 너무 커지는 것을 막는다.
 
 
-# 기타
+## 기타
 위의 내용을 정리하며 가슴으로는 이해되지만 머리로는 잘 이해가 안되는 것들을 정리하였다. 
 
-## 과도하게 크거나 작은 값이 학습을 불안정하게 하는 이유?
+### 과도하게 크거나 작은 값이 학습을 불안정하게 하는 이유?
 
 **Gradient Vanishing**
 tanh 활성함수를 생각해보자. 입력이 매우 작거나 큰 경우 기울기가 0에 가까워지고, 역전파 과정에서 chain-rule에 의해 1보다 작은 값이 반복적으로 곱해져 결과적으로 vanishing 문제를 만든다. 
@@ -120,7 +124,7 @@ $$ {\delta L \over \delta W} = {\delta L \over \delta y}*{\delta y \over \delta 
 **OverFitting**
 입력값이 크면 모델의 출력값이 크게 변동할 가능성이 높아진다. 이로 인해 모델이 특정한 입력패턴에 대해 지나치게 큰 가중치를 학습할 수 있다. 따라서 모델이 특정 특성에 치우쳐 다른 특성을 충분히 반영하지 못하게 되어 일반화 성능이 저하됨.
 
-## 가중치가 지나치게 커지면 왜 안되나?
+### 가중치가 지나치게 커지면 왜 안되나?
 가중치가 커진다는 것은 모델이 데이터의 작은 변화나 노이즈에 민감하게 반응하도록 학습된다는 것을 의미하기 때문에, 모델의 일반화 성능에 악영향을 준다.
 
 
