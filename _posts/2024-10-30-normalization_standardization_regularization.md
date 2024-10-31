@@ -18,7 +18,7 @@ Normalization, Standardization, Regularization이 그것들이다.
 
 _이 셋 각각이 사용되는 범위가 넓지만 해당 포스트에서는 각자 대표적인 의미를 중심으로 정리하고자 한다._
 
-## Normalization (Min-Max scaling)
+## Normalization
 
 > Wikipedia
 > 
@@ -42,7 +42,7 @@ Norm은 여기서 말한 데이터 전처리 뿐만아니라 여러 부분에서
 
 ## Standardization
 
-> ChatGPT
+> **ChatGPT**
 > 
 > Standardization는 데이터의 평균을 0, 표준편차를 1로 맞추어 데이터의 스케일을 조정하는 방법입니다. 표준화는 데이터의 단위를 통일하고 각 특징이 모델에 균등한 영향을 주도록 도와줍니다. 이 과정을 거친 데이터는 평균이 0, 표준편차가 1인 정규 분포 형태로 변환됩니다.
 {: .prompt-tip }
@@ -84,7 +84,9 @@ Normalization과 같은거 아닌가? 라는 생각이 들어서 정리해 보�
 > The goal of regularization is to encourage models to learn the broader patterns within the data rather than memorizing it.
 {: .prompt-tip }
 
-Regularizaion은 학습과정에서 가중치가 너무 커지는 것을 억제한다**. **즉, 모델이 학습데이터를 외우는것(overfitting)이 아닌 데이터의 일반적인 패턴들을 학습하도록 하여 일반화 성능을 높이도록 하기 위해서이다.**
+Regularizaion은 학습과정에서 가중치가 너무 커지는 것을 억제한다**.
+
+**즉, 모델이 학습데이터를 외우는것(overfitting)이 아닌 데이터의 일반적인 패턴들을 학습하도록 하여 일반화 성능을 높이도록 하기 위해서이다.**
 
 $$ 손실함수(L1\,Regularization) = Loss + \lambda \sum_{j=1}^{M}\left\vert w_j \right\vert $$
 
