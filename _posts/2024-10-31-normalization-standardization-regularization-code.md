@@ -3,7 +3,7 @@ title: Normalization, Standardization, Regularization 코드 구현
 date: 2024-10-31 14:30:00 +09:00
 categories: [인공지능 구현]
 tags:
-  [normalization, standardization, regularization]
+  [normalization, standardization, regularization, 코드, 구현]
 toc: true
 published: true
 math: true
