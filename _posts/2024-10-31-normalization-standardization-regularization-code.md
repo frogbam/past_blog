@@ -119,7 +119,7 @@ model = Model()
 criterion = nn.MSELoss()
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-l1_lambda = 0.001
+l2_lambda = 0.001
 
 for epoch in range(100):
   optimizer.zero_grad()
@@ -127,10 +127,10 @@ for epoch in range(100):
   loss = creterion(outputs, targets)
 
   # L2 Regularization 적용
-  l1_reg = 0
+  l2_reg = 0
   for param in model.parameters():
-    l1_reg += torch.sum(param*param)
-  loss = loss + l1_lambda * l1_reg 
+    l2_reg += torch.sum(param*param)
+  loss = loss + l2_lambda * l2_reg 
 
   loss.backward()
   optimizer.step()
@@ -144,8 +144,6 @@ torch에서 모델을 학습할때 L2 Regularization을 구현한 코드이다. 
 # 앞은 동일
 
 optimizer = optim.SGD(model.parameters(), lr=0.01, weight_decay=0.01)
-
-l1_lambda = 0.001
 
 for epoch in range(100):
   optimizer.zero_grad()
