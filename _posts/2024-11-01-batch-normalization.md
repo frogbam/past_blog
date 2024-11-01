@@ -29,7 +29,8 @@ BN은 다양한 매커니즘에서 사용되고 있으며 일반적인 신경망
 
 예를들어, 아래의 그림같이 학습데이터와 테스트데이터의 분포가 다른 경우가 종종 있다.
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/internal_covariate_shift_1.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/internal_covariate_shift_1.png){: w="600"}
+
 
 이 경우, 학습데이터에서 많이 보이는 특징의 영역에 대해서는 학습한 모델이 테스트 데이터에서도 잘 작동할 가능성이 높지만, 학습데이터에서 별로 볼 수 없었던 특징을 많이 가진 테스트 데이터에 많다면 모델은 잘 작동하지 않을 것이다.
 
@@ -43,7 +44,7 @@ BN은 다양한 매커니즘에서 사용되고 있으며 일반적인 신경망
 
 이것을 Internal Covariate Shift라고 부른다.
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/internal_covariate_shift_2.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/internal_covariate_shift_2.png){: w="600"}
 
 직관적으로 레이어에 들어오는 입력 분포가 계속 변하면 학습이 안정적이지 않을 것이다.
 
@@ -70,7 +71,7 @@ scikit-learn의 StandardScaler등을 사용해서 말이다.
 ## Batch Normalization 알고리즘
 구체적으로 어떻게 정규화가 이루어지는지 논문의 알고리즘을 살표보자.
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/algorithm1.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/algorithm1.png){: w="450"}
 
 ### 1. 미니배치의 평균과 분산을 계산
 
@@ -82,7 +83,7 @@ $$ \sigma^2_{\mathcal{B}} = \frac{1}{m} \sum_{i=1}^{m} (x_i - \mu_{\mathcal{B}})
 
 i는 미니배치의 데이터 index이다.
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/channel_by.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/channel_by.png){: w="300"}
 
 즉 레이어별, 각 채널별로 평균과 분산을 계산한다.
 
@@ -112,11 +113,11 @@ Batch Normalization에서는 이 문제를 해결하기 위해 정규화된 $\ha
 
 시그모이드 함수에서 스케일링과 시프팅의 전과 후를 생각해 보자.
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/sigmoid1.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/sigmoid1.png){: w="600"}
 
 정규화된 $\hat{x}_{i}$를 입력으로 하면 시그모이드 함수의 범위는 위의 사진과 같을 것이다. 시그모이드 함수는 0 근처에서는 거의 선형에 가까우므로 비선형성을 잃게 된다.
  
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/sigmoid2.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/sigmoid2.png){: w="600"}
 
 적절하게 스케일링과 시프팅을 한 후 시그모이드 함수에 입력한 결과는 위와 같다. 비선형성을 잃지 않는다.
 
@@ -128,11 +129,11 @@ Batch Normalization에서는 이 문제를 해결하기 위해 정규화된 $\ha
 
 전체 알고리즘은 다음과 같다.
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/algorithm2.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/algorithm2.png){: w="450"}
 
 ### 학습할때
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/train_algorithm.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/train_algorithm.png){: w="450"}
 
 오렌지 박스 부분이 Batch Normalization을 적용한 학습 방법이다.
 
@@ -156,7 +157,7 @@ N은 네트워크 전체를 나타낸다.
 
 왜냐하면, 예를 들어 샘플이 하나뿐이라면 평균과 분산을 계산할 수 없으며, 여러 샘플을 모아 계산하더라도 샘플을 어떻게 선택하느냐에 따라 평균과 분산이 달라져 추론 결과가 달라질 수 있기 때문이다. 추론 단계에서는 결과의 일관성이 매우 중요한데, 추론하려는 데이터를 구성하는 방식에 따라 추론 결과가 변할 수 있다는 뜻이다.
 
-![alt text](../assets/img/posts/2024-11-01-batch-noramalization/inference_algorithm.png)
+![alt text](../assets/img/posts/2024-11-01-batch-noramalization/inference_algorithm.png){: w="450"}
 
 이 문제를 해결하기 위해 Batch Normalization에서는 학습 중에 이동평균(Running Mean)과 이동분산(Running Variance)을 사용한다. 
 
