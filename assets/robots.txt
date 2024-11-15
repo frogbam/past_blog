@@ -6,4 +6,4 @@ permalink: /robots.txt
 User-agent: *
 
 
-Sitemap: [https://frogbam.github.io/sitemap.xml]
+Sitemap: [https://frogbam.github.io/sitemap.xml, https://frogbam.github.io/sitemap]
